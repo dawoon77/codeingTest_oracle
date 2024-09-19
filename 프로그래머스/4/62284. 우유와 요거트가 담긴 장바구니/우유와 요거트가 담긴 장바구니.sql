@@ -1,0 +1,11 @@
+-- 코드를 입력하세요
+SELECT CART_ID
+FROM CART_PRODUCTS 
+-- WHERE NAME = 'Yogurt' OR NAME = 'Milk' 
+WHERE NAME IN ('Yogurt','Milk') 
+
+GROUP BY CART_ID
+HAVING COUNT(DISTINCT CASE WHEN NAME = 'Yogurt' THEN 1
+            WHEN NAME = 'Milk' THEN 2
+            END) = 2
+ORDER BY CART_ID ASC
